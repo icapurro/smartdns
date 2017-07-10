@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="no_wifi">If you are on 3G/4G/LTE unfortunately you can not use Smart DNS Proxy. You have to be connected to a Wireless network.</string>
+    <string name="feel_freedom">Start SmartDNS</string>
+    <string name="ok">OK</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="install_games_helps">By installing any of those apps, you help Block This to remain free. Thank you.</string>
+    <string name="no_games_available">Sorry, there are no games available in your region. Please check again later.</string>
+
+    <string name="donate_page_subtitle">Block This is FREE and does\'t sell your personal data or show you ads.
+         The only way for me to pay the bills is by asking for your support here. If you wish to help out, here are some options. Thank you.</string>
+    <string name="dns_1">DNS 1</string>
+    <string name="dns_2">DNS 2</string>
+    <string name="powered_by">Powered by <a href="https://www.github.com/icapurro">Ignacio Capurro</a></string>
+    <string name="smartdns_service_id">SmartDNS Service ID</string>
+    <string name="smartdns_started">SmartDNS started. Enjoy.</string>
+</resources>
