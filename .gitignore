@@ -1,4 +1,6 @@
 *.iml
+*.apk
+mobile/fabric.properties
 .gradle/
 .idea/
 /local.properties
