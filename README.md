@@ -9,7 +9,7 @@ To trigger the IP update you will need to obtain the service id associated with 
 this url https://www.smartdnsproxy.com/MyAccount/API.
 
 ## Install
-Play store link coming
+[![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=icapurro.org.dnschanger&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)
 
 ## Screenshots
 | Screenshot 1 | screeenshot 2 |
