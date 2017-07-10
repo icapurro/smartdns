@@ -18,7 +18,7 @@ Play store link coming
 
 ## License
 ```
-Copyright 2016 Matthias Urhahn and Garret Yoder
+Copyright 2017 Ignacio Capurro
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
