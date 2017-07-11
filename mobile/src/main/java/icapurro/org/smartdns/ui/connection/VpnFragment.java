@@ -27,6 +27,10 @@ import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
+import com.crashlytics.android.answers.LevelEndEvent;
+import com.crashlytics.android.answers.LevelStartEvent;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
@@ -127,24 +131,6 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-
-        ClickableSpan installSpan = new ClickableSpan() {
-            @Override
-            public void onClick(View textView) {
-//                Answers.getInstance().logCustom(new CustomEvent("3.0 Homepage Support"));
-//
-//                Fragment fragment = new DonateFragment();
-//                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-//                ft.replace(R.id.content_frame, fragment);
-//                ft.commit();
-            }
-            @Override
-            public void updateDrawState(TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setUnderlineText(true);
-            }
-        };
-
         vpnStatusReceiver = new VpnStatusReceiver() {
             @Override
             public void onVpnStartReceived() {
@@ -223,6 +209,7 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
     }
 
     public void alertNoWifi() {
+        Answers.getInstance().logCustom(new CustomEvent("No Wifi"));
         new AlertDialog.Builder(getActivity())
                 .setMessage(R.string.no_wifi)
                 .setPositiveButton(R.string.ok, null)
@@ -230,8 +217,19 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
                 .show();
     }
 
+    private int currentTime() {
+        return (int) ((System.currentTimeMillis() / 1000) % 3600);
+    }
+
     public void startVpn() {
+        Answers.getInstance().logLevelStart(new LevelStartEvent()
+                .putLevelName("Connection"));
+        Answers.getInstance().logCustom(new CustomEvent("Form Params")
+                .putCustomAttribute("DNS1", smartDns.getDns1().toString())
+                .putCustomAttribute("DNS2", smartDns.getDns2().toString())
+                .putCustomAttribute("hasServiceId", smartDns.hasServiceId().toString()));
         preferencesHelper.saveSmartDns(smartDns);
+        preferencesHelper.saveStartDate(currentTime());
         Intent intent = VpnService.prepare(getActivity());
         if (intent != null) {
             startActivityForResult(intent, 0);
@@ -241,6 +239,11 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
     }
 
     public void disconnect(View view) {
+        int score = currentTime() - preferencesHelper.getStartDate();
+        Answers.getInstance().logLevelEnd(new LevelEndEvent()
+                .putLevelName("Connection")
+                .putScore(score)
+                .putSuccess(true));
         if (mainService != null){
             mainService.kill();
         }

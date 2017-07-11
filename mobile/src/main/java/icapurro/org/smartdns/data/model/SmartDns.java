@@ -102,6 +102,10 @@ public class SmartDns extends Service {
         return serviceId;
     }
 
+    public Boolean hasServiceId() {
+        return serviceId != null && !serviceId.equals("");
+    }
+
     public void setServiceId(String serviceId) {
         this.serviceId = serviceId;
     }

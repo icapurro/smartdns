@@ -17,6 +17,7 @@ public class PreferencesHelper {
     private static final String SMART_DNS_DNS_1 = "smart_dns_dns_1";
     private static final String SMART_DNS_DNS_2 = "smart_dns_dns_2";
     private static final String SMART_DNS_UPDATE_IP = "smart_dns_update_ip";
+    private static final String START_DATE = "start_date";
 
     private final SharedPreferences mPref;
 
@@ -45,6 +46,14 @@ public class PreferencesHelper {
         smartDns.setDns2(dns2);
         smartDns.setUpdateIp(updateIp);
         return smartDns;
+    }
+
+    public void saveStartDate(int time) {
+        mPref.edit().putInt(START_DATE, time).apply();
+    }
+
+    public int getStartDate() {
+        return mPref.getInt(START_DATE, 0);
     }
 
     public void clear() {

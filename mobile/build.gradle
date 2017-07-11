@@ -22,8 +22,8 @@ android {
         applicationId "icapurro.org.dnschanger"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 91
-        versionName "1.0.0"
+        versionCode 92
+        versionName "1.0.1"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
