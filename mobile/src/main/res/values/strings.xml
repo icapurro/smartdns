@@ -8,4 +8,11 @@
     <string name="powered_by">Powered by <a href="https://www.github.com/icapurro">Ignacio Capurro</a></string>
     <string name="smartdns_service_id">SmartDNS Service ID</string>
     <string name="smartdns_started">SmartDNS started. Enjoy.</string>
+    <string name="instructions_title">Usage instructions</string>
+    <string name="instructions_body">This is an android client application for the
+        www.smartdnsproxy.com service. You will be able to select the primary and secondary DNS
+        servers and also trigger the IP update automatically at connection time. To trigger the IP
+        update you will need to obtain the service id associated with your account from
+        https://www.smartdnsproxy.com/MyAccount/API</string>
+    <string name="dont_ask_again">Don\'t show this information again</string>
 </resources>

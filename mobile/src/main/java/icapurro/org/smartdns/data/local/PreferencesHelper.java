@@ -18,6 +18,7 @@ public class PreferencesHelper {
     private static final String SMART_DNS_DNS_2 = "smart_dns_dns_2";
     private static final String SMART_DNS_UPDATE_IP = "smart_dns_update_ip";
     private static final String START_DATE = "start_date";
+    private static final String DONT_ASK_AGAIN = "dont_ask_again";
 
     private final SharedPreferences mPref;
 
@@ -54,6 +55,14 @@ public class PreferencesHelper {
 
     public int getStartDate() {
         return mPref.getInt(START_DATE, 0);
+    }
+
+    public void setDontAskAgain(Boolean dontAskAgain) {
+        mPref.edit().putBoolean(DONT_ASK_AGAIN, dontAskAgain).apply();
+    }
+
+    public Boolean isDontAskAgain() {
+        return mPref.getBoolean(DONT_ASK_AGAIN, false);
     }
 
     public void clear() {
