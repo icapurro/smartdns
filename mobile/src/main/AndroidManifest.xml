@@ -27,13 +27,24 @@
 
         <activity
             android:name="icapurro.org.smartdns.ui.connection.ConnectionActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="sensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="icapurro.org.smartdns.ui.connection.TVConnectionActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="58ff340eaf58838ba9ab0dfc43c3d60759f4fd93" />

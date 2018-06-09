@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.res.Configuration;
 import android.net.VpnService;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -13,18 +14,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
-import android.text.TextPaint;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.crashlytics.android.answers.Answers;
@@ -49,8 +47,9 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
     private ConnectionActivity activity;
     private MaterialBetterSpinner spinnerDns1, spinnerDns2;
     private MaterialEditText textServiceId;
-    private CheckBox checkUpdateIp;
-    private RelativeLayout contentMain;
+    private LinearLayout mainLayout;
+    private LinearLayout formLayout;
+    private LinearLayout buttonLayout;
     private PreferencesHelper preferencesHelper;
     private SmartDns smartDns;
     boolean isBound = false;
@@ -75,16 +74,22 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_vpn, container, false);
+        setupView(v);
+        return v;
+    }
 
+    protected void setupView(View v) {
         activity = (ConnectionActivity) getActivity();
-        connectBtn = (View) v.findViewById(R.id.button_connect);
-        disconnectBtn = (View) v.findViewById(R.id.button_disconnect);
+        connectBtn = v.findViewById(R.id.button_connect);
+        disconnectBtn = v.findViewById(R.id.button_disconnect);
         textBtnConnected = (TextView) v.findViewById(R.id.text_button_connected);
         textBtnDisconnected = (TextView) v.findViewById(R.id.text_button_disconnected);
         spinnerDns1 = (MaterialBetterSpinner) v.findViewById(R.id.spinner_dns_1);
         spinnerDns2 = (MaterialBetterSpinner) v.findViewById(R.id.spinner_dns_2);
         textServiceId = (MaterialEditText) v.findViewById(R.id.text_service_id);
-        contentMain = (RelativeLayout) v.findViewById(R.id.content_main);
+        mainLayout = (LinearLayout) v.findViewById(R.id.main_layout);
+        formLayout = (LinearLayout) v.findViewById(R.id.form_layout);
+        buttonLayout = (LinearLayout) v.findViewById(R.id.button_layout);
 
         ((TextView) v.findViewById(R.id.powered_by)).setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -158,8 +163,21 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        return v;
+        setOrientation(this.getResources().getConfiguration().orientation);
     }
+
+    protected void setLayoutWidth(LinearLayout layout, int width) {
+        ViewGroup.LayoutParams params = layout.getLayoutParams();
+        params.width = width;
+        layout.setLayoutParams(params);
+    }
+
+    protected void setLayoutHeight(LinearLayout layout, int height) {
+        ViewGroup.LayoutParams params = layout.getLayoutParams();
+        params.height = height;
+        layout.setLayoutParams(params);
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -309,5 +327,24 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
             updateDisconnectedUI();
         }
         getActivity().registerReceiver(vpnStatusReceiver, filter);
+    }
+
+    protected void setOrientation(int orientation) {
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            mainLayout.setOrientation(LinearLayout.HORIZONTAL);
+            setLayoutWidth(formLayout, ViewGroup.LayoutParams.WRAP_CONTENT);
+            setLayoutWidth(buttonLayout, ViewGroup.LayoutParams.MATCH_PARENT);
+            setLayoutHeight(buttonLayout, ViewGroup.LayoutParams.MATCH_PARENT);
+        } else if (orientation == Configuration.ORIENTATION_PORTRAIT){
+            mainLayout.setOrientation(LinearLayout.VERTICAL);
+            setLayoutWidth(formLayout, ViewGroup.LayoutParams.MATCH_PARENT);
+            setLayoutWidth(buttonLayout, ViewGroup.LayoutParams.MATCH_PARENT);
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        setOrientation(newConfig.orientation);
     }
 }

@@ -1,125 +1,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="icapurro.org.smartdns.ui.connection.VpnFragment">
 
-    <android.support.design.widget.CoordinatorLayout
+    <LinearLayout
+        android:background="@color/cast_intro_overlay_background_color"
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/form_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true">
+        <include layout="@layout/fragment_form"/>
 
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/spinner_dns_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/dns_1"
-                app:met_floatingLabel="highlight"
-                app:met_floatingLabelTextSize="14sp"
-                android:padding="10dp" />
+        <include layout="@layout/fragment_buttons"/>
 
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/spinner_dns_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/dns_2"
-                app:met_floatingLabel="highlight"
-                app:met_floatingLabelTextSize="14sp"
-                android:padding="10dp"/>
-
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/smartdns_service_id"
-                android:textSize="18sp"
-                app:met_floatingLabel="highlight"
-                app:met_maxCharacters="15"
-                app:met_singleLineEllipsis="true"
-                android:id="@+id/text_service_id"
-                android:padding="10dp" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:minHeight="100dp"
-                android:layout_height="match_parent">
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/button_connect"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="top|center"
-                    android:src="@drawable/ic_play_arrow_white_48dp"
-                    app:backgroundTint="@color/blue_primary"
-                    app:fabSize="normal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/button_disconnect"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="18dp"
-                    android:src="@drawable/ic_stop_white_48dp"
-                    android:onClick="disconnect"
-                    android:visibility="gone"
-                    app:backgroundTint="@color/green_primary" />
-
-                <TextView
-                    android:id="@+id/text_button_connected"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/button_connect"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/feel_freedom"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/text_button_disconnected"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/button_disconnect"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/smartdns_started"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold"
-                    android:visibility="gone"/>
-
-                <TextView
-                    android:id="@+id/powered_by"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_margin="8dp"
-                    android:fontFamily="sans-serif-light"
-                    android:gravity="center"
-                    android:linksClickable="true"
-                    android:text="@string/powered_by"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColorLink="?colorPrimary"/>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-    </android.support.design.widget.CoordinatorLayout>
+    </LinearLayout>
 
 </RelativeLayout>

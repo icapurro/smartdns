@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/button_layout"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/text_button_connected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:textColor="@color/icons"
+        android:paddingTop="10dp"
+        android:text="@string/feel_freedom"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text_button_disconnected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:textColor="@color/icons"
+        android:paddingTop="10dp"
+        android:text="@string/smartdns_started"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_connect"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_gravity="top|center"
+        android:gravity="center"
+        android:src="@drawable/ic_play_arrow_white_48dp"
+        app:backgroundTint="@color/blue_primary"
+        app:fabSize="normal" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_disconnect"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_gravity="top|center"
+        android:onClick="disconnect"
+        android:src="@drawable/ic_stop_white_48dp"
+        android:visibility="gone"
+        app:backgroundTint="@color/green_primary" />
+
+    <TextView
+        android:id="@+id/powered_by"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:textColor="@color/icons"
+        android:linksClickable="true"
+        android:paddingTop="10dp"
+        android:text="@string/powered_by"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColorLink="?colorPrimary" />
+
+</LinearLayout>
