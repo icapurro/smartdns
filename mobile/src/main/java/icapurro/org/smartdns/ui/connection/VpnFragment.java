@@ -120,6 +120,20 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
         spinnerDns2.setAdapter(adapter);
         spinnerDns2.setText(smartDns.getDns2().toString());
 
+        spinnerDns1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                spinnerDns1.showDropDown();
+            }
+        });
+
+        spinnerDns2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                spinnerDns2.showDropDown();
+            }
+        });
+
         spinnerDns1.setOnItemClickListener(new OnItemClickListener() {
 
             @Override

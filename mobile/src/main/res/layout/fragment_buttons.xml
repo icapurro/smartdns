@@ -36,6 +36,9 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/button_connect"
+        android:nextFocusDown="@+id/button_disconnect"
+        android:nextFocusLeft="@+id/text_service_id"
+        android:nextFocusUp="@+id/text_service_id"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_gravity="top|center"
@@ -46,6 +49,9 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/button_disconnect"
+        android:nextFocusDown="@+id/powered_by"
+        android:nextFocusLeft="@+id/text_service_id"
+        android:nextFocusUp="@+id/text_service_id"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_gravity="top|center"
@@ -56,6 +62,7 @@
 
     <TextView
         android:id="@+id/powered_by"
+        android:focusable="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"

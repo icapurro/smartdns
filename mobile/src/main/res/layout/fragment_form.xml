@@ -11,6 +11,8 @@
 
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/spinner_dns_1"
+        android:nextFocusDown="@+id/spinner_dns_2"
+        android:nextFocusRight="@+id/button_connect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/dns_1"
@@ -22,6 +24,8 @@
 
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
         android:id="@+id/spinner_dns_2"
+        android:nextFocusDown="@+id/text_service_id"
+        android:nextFocusRight="@+id/button_connect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/dns_2"
@@ -33,6 +37,8 @@
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/text_service_id"
+        android:nextFocusDown="@+id/button_connect"
+        android:nextFocusRight="@+id/button_connect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/smartdns_service_id"
