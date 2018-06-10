@@ -12,8 +12,8 @@ this url https://www.smartdnsproxy.com/MyAccount/API.
 [![Get it on Google Play](https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=icapurro.org.dnschanger&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)
 
 ## Screenshots
-| Screenshot 1 | Screenshot 2 |
-| ------------ | ------------ |
+| Screenshot 1 | Screenshot 2 | Screenshot 3 | Screenshot 4 |
+| ------------ | ------------ | ------------ | ------------ |
 | ![](https://raw.githubusercontent.com/icapurro/smartdns/master/images/device-demo-01.png) | ![](https://raw.githubusercontent.com/icapurro/smartdns/master/images/device-demo-02.png)| ![](https://raw.githubusercontent.com/icapurro/smartdns/master/images/device-demo-03.png)| ![](https://raw.githubusercontent.com/icapurro/smartdns/master/images/device-demo-04.png)|
 
 ## License
