@@ -14,7 +14,7 @@ this url https://www.smartdnsproxy.com/MyAccount/API.
 ## Screenshots
 | Screenshot 1 | Screenshot 2 |
 | ------------ | ------------ |
-| ![](https://raw.githubusercontent.com/icapurro/smartdns/master/images/device-demo-01.png) | ![](https://raw.githubusercontent.com/icapurro/smartdns/master/images/device-demo-02.png)|
+| ![](https://raw.githubusercontent.com/icapurro/smartdns/master/images/device-demo-01.png) | ![](https://raw.githubusercontent.com/icapurro/smartdns/master/images/device-demo-02.png)| ![](https://raw.githubusercontent.com/icapurro/smartdns/master/images/device-demo-03.png)| ![](https://raw.githubusercontent.com/icapurro/smartdns/master/images/device-demo-04.png)|
 
 ## License
 ```
