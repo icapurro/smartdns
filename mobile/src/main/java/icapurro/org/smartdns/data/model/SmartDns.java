@@ -24,15 +24,20 @@ public class SmartDns extends Service {
 
     private List<LocationIp> createLocationIps() {
         return new ArrayList<LocationIp>() {{
+
             add(new LocationIp("Australia, Melbourne", "168.1.79.238"));
             add(new LocationIp("Australia, Sydney", "54.66.128.66"));
             add(new LocationIp("Brazil, Sao Paulo", "54.94.226.225"));
             add(new LocationIp("Canada, Montreal", "169.54.78.85"));
+            add(new LocationIp("Canada, Montreal 2", "104.152.211.99"));
             add(new LocationIp("Canada, Toronto", "169.53.182.120"));
+            add(new LocationIp("Canada, Vancouver", "67.231.17.253"));
+            add(new LocationIp("Denmark, Copenhagen", "82.103.129.72"));
             add(new LocationIp("Germany, Frankfurt", "54.93.173.153"));
-            add(new LocationIp("India, Pune", "169.38.73.5"));
+            add(new LocationIp("India, Chennai", "169.38.73.5"));
+            add(new LocationIp("India, Mumbai", "35.154.249.83"));
             add(new LocationIp("Ireland, Dublin", "54.229.171.243"));
-            add(new LocationIp("Israel", "195.28.181.161"));
+            add(new LocationIp("Israel, Rosh Haayin", "195.28.181.161"));
             add(new LocationIp("Italy, Milan", "95.141.39.236"));
             add(new LocationIp("Japan, Tokyo", "54.64.107.105"));
             add(new LocationIp("Mexico", "169.57.10.21"));
@@ -41,10 +46,12 @@ public class SmartDns extends Service {
             add(new LocationIp("Singapore", "54.255.130.140"));
             add(new LocationIp("South Africa 1", "154.127.57.224"));
             add(new LocationIp("South Africa 2", "129.232.164.26"));
-            add(new LocationIp("Spain, Valencia", "192.162.27.100"));
+            add(new LocationIp("South Korea, Seoul", "13.125.194.42"));
+            add(new LocationIp("Spain, Madrid", "185.93.3.163"));
             add(new LocationIp("Sweden, Stockholm", "46.246.29.69"));
             add(new LocationIp("Switzerland", "81.17.17.170"));
             add(new LocationIp("Turkey, Istanbul", "188.132.234.170"));
+            add(new LocationIp("United Kingdom, London", "35.178.60.174"));
             add(new LocationIp("US East - N. Virginia", "23.21.43.50"));
             add(new LocationIp("US Center - Dallas", "169.53.235.135"));
             add(new LocationIp("US West - Los Angeles", "54.183.15.10"));
