@@ -3,14 +3,12 @@ package icapurro.org.smartdns.ui.connection;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.text.SpannableString;
 import android.text.util.Linkify;
 import android.widget.CompoundButton;
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.crashlytics.android.Crashlytics;
 import com.kobakei.ratethisapp.RateThisApp;
@@ -31,7 +29,11 @@ public class ConnectionActivity extends BaseActivity {
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_connection);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.content_frame, new VpnFragment());
+        VpnFragment fragment = new VpnFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("powered_by", getPoweredBy());
+        fragment.setArguments(bundle);
+        ft.replace(R.id.content_frame, fragment);
         ft.commit();
 
         preferencesHelper = new PreferencesHelper(getApplicationContext());
@@ -44,6 +46,10 @@ public class ConnectionActivity extends BaseActivity {
         RateThisApp.onCreate(this);
         // If the condition is satisfied, "Rate this app" dialog will be shown
         RateThisApp.showRateDialogIfNeeded(this);
+    }
+
+    protected int getPoweredBy() {
+        return R.string.powered_by;
     }
 
     private void showInstructions() {

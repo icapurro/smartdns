@@ -16,14 +16,14 @@ repositories {
 
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 28
+    buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "icapurro.org.dnschanger"
         minSdkVersion 21
-        targetSdkVersion 25
-        versionCode 101
-        versionName "1.1.0"
+        targetSdkVersion 28
+        versionCode 120
+        versionName "1.2.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

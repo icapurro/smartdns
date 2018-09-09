@@ -3,7 +3,6 @@ package icapurro.org.smartdns.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.telephony.TelephonyManager;
 
 public class NetUtils {
 
@@ -18,13 +17,15 @@ public class NetUtils {
     }
 
     /**
-     * Check if there is any connectivity to a Wifi network
+     * Check if there is any connectivity to a Wifi or Ethernet network
      * @param context
      * @return
      */
-    public static boolean isConnectedWifi(Context context){
+    public static boolean isConnectedWifiOrWired(Context context){
         NetworkInfo info = NetUtils.getNetworkInfo(context);
-        return (info != null && info.isConnected() && info.getType() == ConnectivityManager.TYPE_WIFI);
+        return (info != null && info.isConnected() &&
+                (info.getType() == ConnectivityManager.TYPE_WIFI ||
+                 info.getType() == ConnectivityManager.TYPE_ETHERNET));
     }
 
 }

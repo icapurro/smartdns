@@ -63,8 +63,6 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
 
     TextView textBtnDisconnected;
 
-    TextView textDonate;
-
     @Override
     public void onClick(View v) {
 
@@ -72,7 +70,8 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_vpn, container, false);
         setupView(v);
         return v;
@@ -90,8 +89,11 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
         mainLayout = (LinearLayout) v.findViewById(R.id.main_layout);
         formLayout = (LinearLayout) v.findViewById(R.id.form_layout);
         buttonLayout = (LinearLayout) v.findViewById(R.id.button_layout);
+        TextView poweredBy = (TextView) v.findViewById(R.id.powered_by);
 
-        ((TextView) v.findViewById(R.id.powered_by)).setMovementMethod(LinkMovementMethod.getInstance());
+        Bundle bundle = getArguments();
+        poweredBy.setText(bundle.getInt("powered_by", R.string.powered_by));
+        poweredBy.setMovementMethod(LinkMovementMethod.getInstance());
 
         preferencesHelper = new PreferencesHelper(getContext());
 
@@ -113,7 +115,8 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
 
             }
         });
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_dropdown_item_1line, smartDns.getLocationStrings());
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_dropdown_item_1line, smartDns.getLocationStrings());
 
         spinnerDns1.setAdapter(adapter);
         spinnerDns1.setText(smartDns.getDns1().toString());
@@ -161,7 +164,8 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
         getActivity().registerReceiver(vpnStatusReceiver, filter);
 
         if (CustomVpnService.isRunning) {
-            this.getActivity().bindService(new Intent(this.getActivity(), CustomVpnService.class), mainConnection, Context.BIND_AUTO_CREATE);
+            this.getActivity().bindService(new Intent(this.getActivity(), CustomVpnService.class),
+                    mainConnection, Context.BIND_AUTO_CREATE);
             updateConnectedUI();
         }
 
@@ -218,10 +222,10 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
     }
 
     public void connect(View view) {
-        if (NetUtils.isConnectedWifi(getContext())) {
+        if (NetUtils.isConnectedWifiOrWired(getContext())) {
             startVpn();
         } else {
-            alertNoWifi();
+            alertMobileNetwork();
         }
     }
 
@@ -240,7 +244,7 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    public void alertNoWifi() {
+    public void alertMobileNetwork() {
         Answers.getInstance().logCustom(new CustomEvent("No Wifi"));
         new AlertDialog.Builder(getActivity())
                 .setMessage(R.string.no_wifi)
@@ -335,7 +339,8 @@ public class VpnFragment extends Fragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
         if (CustomVpnService.isRunning && !isBound) {
-            getActivity().bindService(new Intent(getActivity(), CustomVpnService.class), mainConnection, Context.BIND_AUTO_CREATE);
+            getActivity().bindService(new Intent(getActivity(), CustomVpnService.class),
+                    mainConnection, Context.BIND_AUTO_CREATE);
             updateConnectedUI();
         } else {
             updateDisconnectedUI();

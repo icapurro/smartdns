@@ -6,6 +6,7 @@
     <string name="dns_1">DNS 1</string>
     <string name="dns_2">DNS 2</string>
     <string name="powered_by">Powered by <a href="https://www.github.com/icapurro">Ignacio Capurro</a></string>
+    <string name="powered_by_tv">Powered by Ignacio Capurro</string>
     <string name="smartdns_service_id">SmartDNS Service ID</string>
     <string name="smartdns_started">SmartDNS started. Enjoy.</string>
     <string name="instructions_title">Usage instructions</string>
